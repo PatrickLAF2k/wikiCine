@@ -7,5 +7,8 @@ export interface Program {
         medium: string;
         original: string;
     } | null;
-    genres:string
+    genres: string;
+    rating: {
+        average: string;
+    }
 }
