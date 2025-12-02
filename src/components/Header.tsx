@@ -12,10 +12,8 @@ export default function Header() {
       </div>
 
       <nav className="flex justify-between items-center gap-2 text-xl font-bold w-1/3 ">
-        <a href="">Filmes</a>
         <a href="">Series</a>
         <a href="">Animes</a>
-        <a href="">Documentarios</a>
       </nav>
 
     </header>
