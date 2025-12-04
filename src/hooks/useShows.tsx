@@ -7,10 +7,11 @@ export function useShows(page: number) {
 
   useEffect(() => {
     async function load() {
+
       setLoading(true);
       const data = await getAllShows(page);
-      console.log(data[1]);
-      
+      console.log(data[0]);
+
       setShows(data);
       setLoading(false);
     }

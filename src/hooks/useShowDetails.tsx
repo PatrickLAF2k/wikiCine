@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { getShowById } from "../services/showService";
+import type { Show } from "@/types"; // ajuste o caminho conforme seu projeto
 
-export function useShowDetails() {
-    const { id } = useParams();
-    const [show, setShow] = useState(null);
+export function useShowDetails(showId: number) {
+    const [show, setShow] = useState<Show | null>(null);
     const [loading, setLoading] = useState(true);
-    console.log(show);
 
     useEffect(() => {
         async function load() {
             setLoading(true);
 
-            const data = await getShowById(Number(id));
+            const data = await getShowById(showId);
             setShow(data);
+
             setLoading(false);
         }
 
         load();
-    }, [id]);
+    }, [showId]);
 
     return { show, loading };
 }

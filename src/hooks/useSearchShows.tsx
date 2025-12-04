@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { searchShowsByName } from "../services/showService";
-import type { Program } from "../types/Program";
+import type { Show } from "@/types";
+
 
 export function useSearchShows(searchTerm: string) {
-    const [results, setResults] = useState<Program[]>([]);
+    const [results, setResults] = useState<Show[]>([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {

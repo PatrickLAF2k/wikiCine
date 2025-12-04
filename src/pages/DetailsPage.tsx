@@ -4,6 +4,7 @@ import { useEpisodes } from "../hooks/useEpisodes";
 import EpsodesCard from "../components/EpisodesCards"
 import { Spinner } from "@/components/ui/spinner"
 import { Badge } from "@/components/ui/badge"
+import type { Episode } from "@/types";
 
 
 
@@ -14,7 +15,7 @@ export default function DetailsPage() {
     const { show, loading: loadingShow } = useShowDetails(showId);
     const { episodes, loading: loadingEpisodes } = useEpisodes(showId);
 
-    if (loadingShow || loadingEpisodes) return <Spinner />;
+    if (loadingShow || loadingEpisodes || !show) return <Spinner />;
 
     const episodesBySeason = episodes.reduce((acc: any, ep: any) => {
         if (!acc[ep.season]) acc[ep.season] = [];
@@ -27,7 +28,15 @@ export default function DetailsPage() {
             <main className="flex flex-col container mx-auto items-center p-5">
 
                 <div className="grid md:grid-cols-[300px_1fr] gap-8 mb-2">
-                    <img src={show.image.original} alt={show.name} className="w-full rounded-lg shadow-lg" />
+                    {show.image ? (
+                        <img
+                            src={show.image.original}
+                            alt={show.name}
+                            className="w-full rounded-lg shadow-lg"
+                        />
+                    ) : (
+                        <p>Sem imagem disponível</p>
+                    )}
                 </div>
 
                 <div className=" flex flex-col gap-3" >
@@ -52,12 +61,6 @@ export default function DetailsPage() {
                         <p dangerouslySetInnerHTML={{ __html: show.summary }}></p>
                     </div>
 
-
-
-
-
-
-
                 </div>
             </main>
 
@@ -72,7 +75,7 @@ export default function DetailsPage() {
                         </h3>
 
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-                            {episodesBySeason[season].map(ep => (
+                            {episodes.map((ep: Episode) => (
                                 <EpsodesCard key={ep.id} ep={ep} />
                             ))}
                         </div>
