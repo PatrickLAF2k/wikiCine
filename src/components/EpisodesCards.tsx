@@ -15,7 +15,7 @@ export default function EpisodesCards({ ep, showId }: EpisodesCardProps) {
     }
 
     return (
-        <div className="relative overflow-hidden  p-3 border rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer " onClick={handleClick}>
+        <article className="relative overflow-hidden  p-3 border rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer " onClick={handleClick}>
 
             {ep.image?.medium ? (
                 <img src={ep.image.medium} alt={ep.name} className="rounded-lg w-full " />
@@ -31,6 +31,6 @@ export default function EpisodesCards({ ep, showId }: EpisodesCardProps) {
             <p className="font-semibold whitespace-nowrap overflow-hidden text-ellipsis py-1">
                 {ep.number}. {ep.name}
             </p>
-        </div>
+        </article>
     );
 }
