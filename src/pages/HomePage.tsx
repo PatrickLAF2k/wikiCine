@@ -42,7 +42,7 @@ export default function HomePage() {
                 {loading && <Spinner />}
 
                 {!loading && (
-                    <div className=" container mx-auto py-5 px-3  grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5" >
+                    <div className=" container mx-auto py-5 px-3  grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5" >
 
                         {shows.map((show: Show) => (
                             <SeriesCard key={show.id} show={show} />
