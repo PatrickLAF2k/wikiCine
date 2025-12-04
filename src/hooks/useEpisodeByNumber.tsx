@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getEpisodeByNumber } from "../services/showService";
 
 export function useEpisodeByNumber(showId: number, season: number, number: number) {
-    const [episode, setEpisode] = useState<any>(null); // ou crie uma interface tipo Episode
+    const [episode, setEpisode] = useState<any>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 

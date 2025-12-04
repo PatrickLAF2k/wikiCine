@@ -2,7 +2,6 @@ import SeriesCards from '../components/SeriesCards';
 import { useFavoritesStore } from '../stores/favorites';
 
 export default function FavoritesPage() {
-    // Pega os favoritos da store
     const favorites = useFavoritesStore((state) => state.favorites);
 
     return (

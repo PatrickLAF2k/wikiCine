@@ -28,7 +28,7 @@ export const useFavoritesStore = create<FavoritesState>()(
                 })),
         }),
         {
-            name: "favorites-storage", // nome da chave no localStorage
+            name: "favorites-storage",
             storage: createJSONStorage(() => localStorage),
         }
     )
