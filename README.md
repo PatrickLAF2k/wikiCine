@@ -1,74 +1,100 @@
-# React + TypeScript + Vite
+# Projeto para avaliação técnica
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi desenvolvido como parte de um desafio técnico para demonstrar domínio de React, TypeScript, boas práticas de código, organização de componentes, consumo de API e experiência do usuário (UX).
 
-Currently, two official plugins are available:
+O objetivo é criar um aplicativo que consuma a API pública do TVMaze e permita explorar séries, temporadas, episódios e favoritos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Objetivo
 
-## React Compiler
+Desenvolver um aplicativo React funcional, organizado e escalável que:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Consome dados da API do TVMaze
+- Lista séries e episódios
+- Exibe detalhes completos de cada item
+- Permite favoritar séries com persistência
+- Mantém boa performance, responsividade e UX
 
-## Expanding the ESLint configuration
+O foco principal é avaliar:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Capacidade técnica com React + TypeScript
+- Arquitetura e componentização
+- Boas práticas de estado, navegação e semântica
+- Organização, clareza e eficiência do código
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📌 Funcionalidades Obrigatórias Implementadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 1. Página de Listagem de Séries
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Listagem de séries obtidas da API do TVMaze
+- Paginação (ou carregamento via busca conforme necessidade da API)
+- Campo de busca pelo nome da série
+- Cada card exibe:
+  - 📌 Nome da série
+  - 🖼️ Poster
+  - ⭐ Nota
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Página de Detalhes da Série
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Ao clicar em uma série, o usuário visualiza:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# wikiCine
+- Nome
+- Poster
+- Dias e horários de exibição
+- Gêneros
+- Resumo completo
+- Episódios agrupados por temporada
+- Navegação para página individual do episódio
+
+### 3. Listagem e Detalhes dos Episódios
+
+Para cada episódio, a aplicação exibe:
+
+- Nome
+- Número do episódio
+- Temporada
+- Resumo
+- Imagem (caso disponível)
+
+O usuário navega entre episódios por meio de rotas dedicadas:
+`/series/:id/season/:s/episode/:e`
+
+### 4. Favoritos (com Zustand + Persistência)
+
+A aplicação permite:
+
+- ❤️ Adicionar e remover séries dos favoritos
+- 📚 Listagem dos favoritos em ordem alfabética
+- 🔄 Favoritos persistem após refresh ou fechamento do navegador
+- 🔗 Navegar dos favoritos diretamente para os detalhes da série
+
+## 🧱 Stack Utilizada
+
+**Frontend**
+- ⚛️ React.js
+- 🟦 TypeScript
+- 🎨 TailwindCSS
+- 🧭 React Router DOM
+- 🖼️ Iconify
+- ⚡ Vite
+
+**Gerenciamento de Estado**
+- 🐻 Zustand com persistência (persist middleware)
+
+**API**
+- 🌐 TVMaze API
+  - `/shows`
+  - `/shows/:id/episodes`
+
+## 🧩 Requisitos Técnicos Atendidos
+
+✔️ Componentização clara e reutilizável
+✔️ Organização de pastas coerente
+✔️ Uso de hooks e paradigma funcional
+✔️ Tipagem completa com TypeScript
+✔️ Navegação estruturada com rotas dinâmicas
+✔️ Layout totalmente responsivo
+✔️ Tratamento adequado de dados ausentes (ex: imagens faltando)
+✔️ Semântica HTML aplicada (article, section, etc.)
+✔️ Persistência de favoritos com Zustand
+✔️ UX fluida e acessível
+✔️ Código limpo, legível e comentado
