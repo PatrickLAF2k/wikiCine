@@ -29,12 +29,12 @@ export default function SeriesCard({ show }: SeriesCardProps) {
                 <Icon icon="material-symbols-light:hide-image-outline" className="w-full rounded-lg border-2 h-86" />
             )}
 
-            <Badge className=" flex items-center  absolute bottom-1/5  left-5 md:bottom-1/8 ">
+            <div className="absolute bottom-1/5 left-5 bg-neutral-100 bg-opacity-70 rounded flex  items-center gap-1 px-2 shadow-md md:bottom-1/6">
 
                 <Icon icon="material-symbols:star-shine-outline-rounded" color="blue" />
 
-                <p> {show.rating.average != null ? show.rating.average.toFixed(1) : "Não avaliado"} </p>
-            </Badge>
+                <p className="" > {show.rating.average != null ? show.rating.average.toFixed(1) : "--"} </p>
+            </div>
 
             <p className="font-semibold whitespace-nowrap overflow-hidden text-ellipsis py-1">{show.name}</p>
 
