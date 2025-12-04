@@ -10,7 +10,6 @@ export function useShows(page: number) {
 
       setLoading(true);
       const data = await getAllShows(page);
-      console.log(data[0]);
 
       setShows(data);
       setLoading(false);
