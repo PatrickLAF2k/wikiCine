@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getShowById } from "../services/showService";
-import type { Show } from "@/types"; // ajuste o caminho conforme seu projeto
+import type { Show } from "@/types";
 
 export function useShowDetails(showId: number) {
     const [show, setShow] = useState<Show | null>(null);
