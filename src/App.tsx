@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
-import DetailsPage from './pages/DetailsPage'
+import SeriesDetailsPage from './pages/SeriesDetailsPage'
+import EpisodeDetailsPage from './pages/EpisodeDetailsPage';
 
 function App() {
 
@@ -10,7 +11,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/series/:id" element={<DetailsPage />} />
+        <Route path="/series/:id" element={<SeriesDetailsPage />} />
+        <Route path="/series/:showId/season/:season/episode/:episodeNumber" element={<EpisodeDetailsPage />} />
       </Routes>
     </BrowserRouter>
   )
