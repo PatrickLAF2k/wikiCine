@@ -38,6 +38,7 @@ export default function SeriesCards({ show }: SeriesCardProps) {
             )}
 
             <div className="absolute bottom-1/5 left-5 bg-neutral-100 bg-opacity-70 rounded flex items-center gap-1 px-2 shadow-md md:bottom-1/6">
+            
                 <Icon icon="material-symbols:star-shine-outline-rounded" color="blue" />
                 <p>{show.rating.average != null ? show.rating.average.toFixed(1) : "--"}</p>
             </div>
