@@ -1,8 +1,13 @@
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge"
+import type { Show } from "@/types";
 
-export default function EpisodesCard({ show }: Program) {
+interface SeriesCardProps {
+    show: Show;
+}
+
+export default function SeriesCard({ show }: SeriesCardProps) {
     const navigate = useNavigate();
 
     function handleClick() {

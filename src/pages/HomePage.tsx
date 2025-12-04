@@ -5,7 +5,7 @@ import {
 } from "@/components/ui/pagination"
 import { Spinner } from "@/components/ui/spinner"
 
-import SeriesCard from "@/components/SeriesCard";
+import SeriesCard from "@/components/SeriesCards";
 import { useShows } from "../hooks/useShows";
 import { useState } from "react";
 import ShowSearch from "@/components/SeriesSearch";

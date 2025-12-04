@@ -1,7 +1,12 @@
 import { Icon } from "@iconify/react";
 // import { useNavigate } from "react-router-dom";
+import type { Episode } from "@/types";
 
-export default function EpisodesCards({ ep }: Program) {
+interface EpisodesCardProps {
+    ep: Episode;
+}
+
+export default function EpisodesCards({ ep }: EpisodesCardProps) {
     // const navigate = useNavigate();
 
     // function handleClick() {

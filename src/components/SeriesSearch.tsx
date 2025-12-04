@@ -1,18 +1,20 @@
 // components/ShowSearch.tsx
 import { useState } from "react";
 import { useSearchShows } from "../hooks/useSearchShows";
-import type { } from "../types/Program";
 import { InputGroup, InputGroupInput } from "@/components/ui/input-group";
 import { Icon } from "@iconify/react";
-import SeriesCard from "@/components/SeriesCard";
+import SeriesCard from "@/components/SeriesCards";
 import { Spinner } from "@/components/ui/spinner"
+import type { Show } from "@/types";
+
 
 
 export default function SeriesSearch() {
   const [searchTerm, setSearchTerm] = useState("");
   const { results: searchResults, loading } = useSearchShows(searchTerm);
 
-  const displayedShows: Program[] = searchTerm ? searchResults : [];
+  const displayedShows: Show[] = searchTerm ? searchResults : [];
+
 
   return (
     <section className="mb-6 container mx-auto p-5">
