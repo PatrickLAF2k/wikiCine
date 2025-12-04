@@ -4,6 +4,8 @@ import {
     PaginationPrevious,
 } from "@/components/ui/pagination"
 import { Spinner } from "@/components/ui/spinner"
+import type { Show } from "@/types";
+
 
 import SeriesCard from "@/components/SeriesCards";
 import { useShows } from "../hooks/useShows";
@@ -42,9 +44,8 @@ export default function HomePage() {
                 {!loading && (
                     <div className=" container mx-auto py-5 px-3  grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5" >
 
-                        {shows.map((show: Program) => (
+                        {shows.map((show: Show) => (
                             <SeriesCard key={show.id} show={show} />
-
                         ))}
                     </div>
                 )
