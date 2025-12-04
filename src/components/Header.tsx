@@ -13,17 +13,17 @@ export default function Header() {
 
         <Link to="">
           <nav className="flex items-center ">
-            <Icon icon="ri:movie-2-ai-line" fontSize="3em" />
-            <h1 className="" >Wiki Cine</h1>
+            <Icon icon="ri:movie-2-ai-line" fontSize="2em" />
+            <h1 className="font-semibold" >Wiki Cine</h1>
           </nav>
         </Link>
 
 
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 ">
 
           <Link to="">
-            <Button > Programas </Button>
+            <Button > Séries </Button>
           </Link>
 
 
