@@ -25,3 +25,13 @@ export async function getEpisodesByShowId(id: number) {
     const response = await api.get(`/shows/${id}/episodes`);
     return response.data;
 }
+
+export async function getEpisodeByNumber(showId: number, season: number, number: number) {
+    const response = await api.get(
+        `/shows/${showId}/episodebynumber`,
+        {
+            params: { season, number }
+        }
+    );
+    return response.data;
+}
